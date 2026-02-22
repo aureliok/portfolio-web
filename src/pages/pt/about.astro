@@ -1,0 +1,141 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const t = useTranslations('pt');
+
+const skills = {
+  'Backend': ['TypeScript', 'NestJS', 'Python', 'FastAPI', 'C#', '.NET'],
+  'Dados & IA': ['Machine Learning', 'Ciência de Dados', 'Estatística', 'Pandas', 'Scikit-learn'],
+  'Infraestrutura': ['PostgreSQL', 'Redis', 'Docker', 'AWS'],
+};
+
+const experience = [
+  {
+    role: 'Engenheiro de Software',
+    company: 'Gabriel',
+    period: 'Jul 2024 - Presente',
+    description: 'Desenvolvimento de serviços backend orientados a dados usando TypeScript e NestJS.',
+  },
+  {
+    role: 'Cientista de Dados',
+    company: 'Amaris',
+    period: 'Mar 2023 - Fev 2024',
+    description: 'Realização de testes e estudos com aplicações de LLMs e RAG no contexto de diversas áreas de negócios de uma empresa de grande porte na área de telecomunicações.',
+  },
+  {
+    role: 'Cientista de Dados',
+    company: 'Coteminas',
+    period: 'Fev 2022 - Fev 2023',
+    description: 'Desenvolvi modelos de machine learning e deep learning com dados não estruturados para um produto focado em monitoramento do sono',
+  },
+  {
+    role: 'Cientista de Dados',
+    company: 'Itaú',
+    period: 'Abr 2020 - Ago 2021',
+    description: 'Desenvolvimento de ferramentas de text mining para extração de informações de documentos pdf relacionadas a fundos de investimentos para fins de automatização e redução de riscos operacionais.',
+  },
+  {
+    role: 'Cientista de Dados',
+    company: 'Marketdata',
+    period: 'Fev 2018 - Mar 2020',
+    description: 'Responsável pelo desenvolvimento de análises e modelos estatísticos em geral voltados para Marketing.',
+  },
+];
+---
+
+<Layout title="Sobre">
+  <section style="padding-top: 2rem; padding-bottom: 5rem;">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 0 2.5rem;">
+
+    <!-- cabeçalho -->
+    <div class="mb-16 animate-1">
+      <div class="w-16 h-px bg-[#00ff88] mb-8"></div>
+      <h1 class="font-display text-5xl md:text-6xl font-bold tracking-tight mb-6">
+        {t('about.title')}
+      </h1>
+    </div>
+
+    <!-- bio -->
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-16 mb-20 animate-1">
+      <div class="lg:col-span-3 flex flex-col gap-6">
+        <p class="font-mono text-sm text-white/60 leading-relaxed">{t('about.bio_1')}</p>
+        <p class="font-mono text-sm text-white/60 leading-relaxed">{t('about.bio_2')}</p>
+        <p class="font-mono text-sm text-white/60 leading-relaxed">{t('about.bio_3')}</p>
+        <div class="flex gap-4 mt-4">
+          <a href="https://github.com/aureliok" target="_blank" class="font-mono text-xs px-4 py-2 border border-white/20 text-white/50 hover:border-[#00ff88] hover:text-[#00ff88] transition-all duration-200">
+            GitHub →
+          </a>
+          <a href="https://www.linkedin.com/in/aurelio-k-kanashiro/" target="_blank" class="font-mono text-xs px-4 py-2 border border-white/20 text-white/50 hover:border-[#00ff88] hover:text-[#00ff88] transition-all duration-200">
+            LinkedIn →
+          </a>
+        </div>
+      </div>
+
+      <!-- habilidades -->
+      <div class="lg:col-span-2 flex flex-col gap-8">
+        <h2 class="font-display text-xl font-bold text-[#00ff88]">{t('about.skills_title')}</h2>
+        {Object.entries(skills).map(([category, items]) => (
+          <div>
+            <p class="font-mono text-xs text-white/30 uppercase tracking-widest mb-3">{category}</p>
+            <div class="flex flex-wrap gap-2">
+              {items.map(skill => (
+                <span class="font-mono text-xs px-3 py-1 border border-white/10 text-white/50 hover:border-[#00ff88]/50 hover:text-[#00ff88] transition-all duration-200 cursor-default">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- experiência -->
+    <div>
+      <div class="w-16 h-px bg-[#00ff88] mb-8 animate-1"></div>
+      <h2 class="font-display text-3xl font-bold mb-12 animate-1">Experiência</h2>
+      <div class="flex flex-col gap-12 animate-1">
+        {experience.map((item) => (
+          <div class="flex flex-col gap-2 border-l-2 border-white/10 pl-6 hover:border-[#00ff88] transition-colors duration-300">
+            <p class="font-mono text-xs text-white/30">{item.period}</p>
+            <h3 class="font-display text-xl font-bold">{item.role}</h3>
+            <p class="font-mono text-sm text-[#00ff88] mb-1">{item.company}</p>
+            <p class="font-mono text-sm text-white/50 leading-relaxed">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .animate-1 {
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+  }
+
+  .animate-2 {
+    animation: fadeUp 0.8s ease forwards;
+    animation-delay: 0.15s;
+    opacity: 0;
+  }
+
+  .animate-3 {
+    animation: fadeUp 0.8s ease forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

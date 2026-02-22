@@ -1,0 +1,87 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const t = useTranslations('pt');
+
+const skills = [
+  'TypeScript', 'NestJS', 'Python', 'FastAPI',
+  'C#', '.NET', 'PostgreSQL', 'Redis',
+  'Docker', 'AWS', 'Machine Learning', 'Data Science'
+];
+---
+
+<Layout title="Início">
+  <section class="min-h-[90vh] flex flex-col justify-center items-center text-center px-6 md:px-16 lg:px-32 relative overflow-hidden">
+    <!-- background grid -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(#00ff88 1px, transparent 1px), linear-gradient(90deg, #00ff88 1px, transparent 1px); background-size: 50px 50px;"></div>
+
+    <div class="w-16 h-px bg-[#00ff88] mb-8"></div>
+
+    <p class="font-mono text-xs md:text-sm text-white/40 mb-3 tracking-widest uppercase">{t('hero.greeting')}</p>
+
+    <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-none mb-6">
+      Aurélio<br/>
+      <span class="text-[#00ff88]">Kanashiro</span>
+    </h1>
+
+    <p class="font-mono text-base md:text-lg text-white/60 max-w-2xl mb-4 leading-relaxed">
+      {t('hero.tagline')}
+    </p>
+
+    <p class="font-mono text-xs md:text-sm text-white/40 max-w-xl mb-10 leading-relaxed">
+      {t('hero.bio')}
+    </p>
+
+    <div class="flex flex-wrap gap-2 mb-10 justify-center max-w-2xl">
+      {skills.map(skill => (
+        <span class="font-mono text-xs px-3 py-1 border border-white/10 text-white/50 hover:border-[#00ff88]/50 hover:text-[#00ff88] transition-all duration-200 cursor-default">
+          {skill}
+        </span>
+      ))}
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a href="/pt/projects" class="font-mono text-sm px-6 py-3 bg-[#00ff88] text-black font-medium hover:bg-white transition-colors duration-200 text-center">
+        {t('hero.cta_projects')}
+      </a>
+      <a href="/pt/chat" class="font-mono text-sm px-6 py-3 border border-white/20 text-white/60 hover:border-[#00ff88] hover:text-[#00ff88] transition-all duration-200 text-center">
+        {t('hero.cta_chat')} →
+      </a>
+    </div>
+
+    <!-- floating code decoration -->
+    <div class="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:block opacity-10">
+      <pre class="font-mono text-xs text-[#00ff88] leading-relaxed">
+{`const engenheiro = {
+  nome: "Aurélio Kanashiro",
+  foco: "backend + IA",
+  stack: ["TS", "Python", ".NET"],
+};`}
+      </pre>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  h1 {
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  p, .flex {
+    animation: fadeUp 0.8s ease forwards;
+    animation-delay: 0.1s;
+    opacity: 0;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

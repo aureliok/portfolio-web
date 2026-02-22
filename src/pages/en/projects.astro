@@ -1,0 +1,51 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/utils';
+import ProjectsGrid from '../../components/ProjectsGrid';
+
+const t = useTranslations('en');
+const apiUrl = import.meta.env.PUBLIC_API_URL + '/projects';
+---
+
+<Layout title="Projects">
+  <section style="padding-top: 2rem; padding-bottom: 5rem;">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 0 2.5rem;">
+
+      <div class="mb-16 animate-1">
+        <div class="w-16 h-px bg-[#00ff88] mb-8"></div>
+        <h1 class="font-display text-5xl md:text-6xl font-bold tracking-tight mb-4">
+          {t('projects.title')}
+        </h1>
+        <p class="font-mono text-sm text-white/40">{t('projects.subtitle')}</p>
+      </div>
+
+      <div class="animate-2">
+        <ProjectsGrid
+          client:load
+          apiUrl={apiUrl}
+          noProjectsText={t('projects.no_projects')}
+          viewCodeText={t('projects.view_code')}
+        />
+      </div>
+
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .animate-1 {
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+  }
+
+  .animate-2 {
+    animation: fadeUp 0.8s ease forwards;
+    animation-delay: 0.15s;
+    opacity: 0;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
