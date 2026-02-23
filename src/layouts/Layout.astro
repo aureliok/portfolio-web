@@ -15,7 +15,7 @@ const navLinks = [
   { label: t('nav.home'), href: `/${lang}` },
   { label: t('nav.about'), href: `/${lang}/about` },
   { label: t('nav.projects'), href: `/${lang}/projects` },
-  { label: t('nav.chat'), href: `/${lang}/chat` },
+  // { label: t('nav.chat'), href: `/${lang}/chat` },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -47,9 +47,9 @@ const currentPath = Astro.url.pathname;
             {link.label}
           </a>
         ))}
-        <a href="/resume.pdf" download class="font-mono text-sm px-4 py-2 border border-[#00ff88]/40 text-[#00ff88] hover:bg-[#00ff88] hover:text-black transition-all duration-200">
+        <!-- <a href="/resume.pdf" download class="font-mono text-sm px-4 py-2 border border-[#00ff88]/40 text-[#00ff88] hover:bg-[#00ff88] hover:text-black transition-all duration-200">
           {t('nav.resume')}
-        </a>
+        </a> -->
         <div class="flex gap-2 ml-2">
           <a href={`/en${currentPath.substring(3)}`} class={`font-mono text-xs px-2 py-1 transition-colors ${lang === 'en' ? 'bg-[#00ff88] text-black' : 'text-white/40 hover:text-white'}`}>EN</a>
           <a href={`/pt${currentPath.substring(3)}`} class={`font-mono text-xs px-2 py-1 transition-colors ${lang === 'pt' ? 'bg-[#00ff88] text-black' : 'text-white/40 hover:text-white'}`}>PT</a>

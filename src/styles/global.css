@@ -28,6 +28,10 @@ body {
   color: #e8e8e8;
 }
 
+.section-gap {
+  margin-top: 1.5rem;
+}
+
 ::selection {
   background: #00ff88;
   color: #0a0a0a;

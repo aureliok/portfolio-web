@@ -10,6 +10,21 @@ const skills = {
   'Infrastructure': ['PostgreSQL', 'Redis', 'Docker', 'AWS'],
 };
 
+const education = [
+  {
+    degree: 'Specialization Course in Complex Data Mining',
+    institution: 'UNICAMP - Universidade Estadual de Campinas',
+    period: 'Jun 2020 — Dec 2020',
+    description: 'Extension course in Complex Data Mining covering big data management, data visualization, business intelligence and predictive modeling using modern machine learning methods.',
+  },
+  {
+    degree: 'Bachelor\'s in Statistics',
+    institution: 'USP - Universidade de São Paulo',
+    period: '2012 — 2018',
+    description: 'Focus on statistical modeling, probability theory, statistical inference and data analysis.',
+  },
+];
+
 const experience = [
   {
     role: 'Software Engineer',
@@ -90,11 +105,27 @@ const experience = [
       </div>
     </div>
 
+    <!-- education -->
+    <div class="section-gap">
+      <div class="w-16 h-px bg-[#00ff88] mb-8 animate-1"></div>
+      <h2 class="font-display text-3xl font-bold mb-12 animate-1">Education</h2>
+      <div class="flex flex-col gap-6 animate-1">
+        {education.map((item) => (
+          <div class="flex flex-col gap-2 border-l-2 border-white/10 pl-6 hover:border-[#00ff88] transition-colors duration-300">
+            <p class="font-mono text-xs text-white/30">{item.period}</p>
+            <h3 class="font-display text-xl font-bold">{item.degree}</h3>
+            <p class="font-mono text-sm text-[#00ff88] mb-1">{item.institution}</p>
+            <p class="font-mono text-sm text-white/50 leading-relaxed">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
     <!-- experience -->
-    <div>
+    <div class="section-gap">
       <div class="w-16 h-px bg-[#00ff88] mb-8 animate-1"></div>
       <h2 class="font-display text-3xl font-bold mb-12 animate-1">Experience</h2>
-      <div class="flex flex-col gap-12 animate-1">
+      <div class="flex flex-col gap-6 animate-1">
         {experience.map((item) => (
           <div class="flex flex-col gap-2 border-l-2 border-white/10 pl-6 hover:border-[#00ff88] transition-colors duration-300">
             <p class="font-mono text-xs text-white/30">{item.period}</p>
