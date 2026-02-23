@@ -56,13 +56,13 @@ export default function MobileMenu({
               {link.label}
             </a>
           ))}
-          <a
+          {/* <a
             href="/resume.pdf"
             download
             className="font-mono text-2xl text-[#00ff88] hover:text-white transition-colors"
           >
             {resumeLabel}
-          </a>
+          </a> */}
           <div className="flex gap-4 mt-4">
             <a
               href={`/${lang}${currentPath.substring(3)}`}
